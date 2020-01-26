@@ -1,5 +1,6 @@
 import { Sorter } from './Sorter';
 import { NumbersCollection } from './NumbersCollection';
+import { CharactersCollection } from './CharactersCollection';
 
 const numbersCollection = new NumbersCollection([
   2,
@@ -14,6 +15,14 @@ const numbersCollection = new NumbersCollection([
   77,
   12
 ]);
+
+const charactersCollection = new CharactersCollection('bbXXZsdasw');
+
 const sorter = new Sorter(numbersCollection);
 sorter.sort();
 console.log(numbersCollection.data);
+
+
+const sorterChars = new Sorter(charactersCollection);
+sorterChars.sort();
+console.log(charactersCollection.data);
