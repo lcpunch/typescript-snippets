@@ -2,8 +2,8 @@ import { NumbersCollection } from './NumbersCollection';
 
 interface Sortable {
   length: number;
-  compare(leftIndex: Number, rightIndex: Number): Boolean;
-  swap(leftIndex: Number, rightIndex: Number): void;
+  compare(leftIndex: number, rightIndex: number): boolean;
+  swap(leftIndex: number, rightIndex: number): void;
 }
 
 export class Sorter {
