@@ -1,8 +1,6 @@
 class Node {
   next: Node | null = null; 
-  constructor(public data: number) {
-
-  }
+  constructor(public data: number) { }
 }
 
 export class LinkedList {
@@ -37,5 +35,58 @@ export class LinkedList {
     }
 
     return length;
+  }
+
+  at(index: number): Node {
+    if(!this.head) {
+      throw new Error('Index out of bounds');
+    }
+
+    let counter = 0;
+    let node = this.head;
+
+    while(node) { 
+      if(counter === index) {
+        return node;
+      }
+      counter ++;
+      node = node.next;
+    }
+
+    throw new Error('Index out of bounds');
+  }
+
+  compare(leftIndex: number, rightIndex: number): boolean { 
+    if(!this.head) {
+      throw new Error('List is empty');
+    }
+
+    return this.at(leftIndex).data > this.at(rightIndex).data;
+  }
+
+  /**
+   * Cheating... not swapping the node but just the values
+   * @param leftIndex 
+   * @param rightIndex 
+   */
+  swap(leftIndex: number, rightIndex: number): void {
+    const leftNode = this.at(leftIndex);
+    const rightNode = this.at(rightIndex);
+    
+    const leftHand = leftNode.data;
+    leftNode.data = rightNode.data;
+    rightNode.data = leftHand;
+  }
+
+
+  print(): void {
+    if (!this.head) {
+      return;
+    }
+    let node = this.head;
+    while (node) {
+      console.log(node.data);
+      node = node.next;
+    }
   }
 }
